@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>New Roach</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+</head>
+<body>
+
+        <div>
+            <% JSON.stringify(messages) %>
+            <% if (messages.creating_animal) { %>    
+                <% for (var x of messages.creating_animal) { %>
+                    <p><%= x %></p>
+                <% } %>
+            <% } %>
+        </div>
+    
+    <form action="/process_roach" method="POST">
+        <p> name: </p>
+        <input type="text" name="name">
+        <p> age: </p>
+        <input type="text" name="age">
+        <p> description </p>
+        <textarea name="description" rows=3></textarea>
+        <input type="submit">
+    </form>
+
+    <a href="/"> Go Back!</a>
+
+</body>
+</html>

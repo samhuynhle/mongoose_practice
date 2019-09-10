@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Edit Roach</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+</head>
+<body>
+
+
+
+        <div>
+            <% JSON.stringify(messages) %>
+            <% if (messages.editing_animal) { %>    
+                <% for (var x of messages.editing_animal) { %>
+                    <p><%= x %></p>
+                <% } %>
+            <% } %>
+        </div>
+    
+    <form action="/process_edit/<%= roach._id %>" method="post">
+        <p> name: </p>
+        <input type="text" name="name" value="<%= roach.name %>">
+        <p> age: </p>
+        <input type="text" name="age" value="<%= roach.age %>">
+        <p> description </p>
+        <textarea name="description" rows=3><%= roach.description %> </textarea>
+        <input type="submit">
+    </form>
+
+    <a href="/"> Go Back!</a>
+
+</body>
+</html>
